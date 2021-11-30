@@ -245,6 +245,14 @@ h1, h2, h3, h4, h5, h6 {
   background: url("../img/hero-bg.jpg") top right no-repeat;
   background-size: cover;
   position: relative;
+ 
+}
+@media (max-width:996px){
+  #hero{
+    background: url("../img/hero-bg2.jpg") top right no-repeat;
+    background-size: cover;
+    
+  }
 }
 @media (min-width: 992px) {
   #hero {
@@ -253,7 +261,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 #hero:before {
   content: "";
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.1);
   position: absolute;
   bottom: 0;
   top: 0;
@@ -265,10 +273,10 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 64px;
   font-weight: 700;
   line-height: 56px;
-  color: #45505b;
+  color: white;
 }
 #hero p {
-  color: #45505b;
+  color: white;
   margin: 15px 0 0 0;
   font-size: 26px;
   font-family: "Poppins", sans-serif;
@@ -283,7 +291,7 @@ h1, h2, h3, h4, h5, h6 {
 #hero .social-links a {
   font-size: 24px;
   display: inline-block;
-  color: #45505b;
+  color: white;
   line-height: 1;
   margin-right: 20px;
   transition: 0.3s;
@@ -913,14 +921,14 @@ section {
   background: #0563bb;
   color: #fff;
 }
-.contact .php-email-form {
+.contact .myform {
   width: 100%;
   background: #fff;
 }
-.contact .php-email-form .form-group {
+.contact .myform .form-group {
   padding-bottom: 8px;
 }
-.contact .php-email-form .error-message {
+.contact .myform .error-message {
   display: none;
   color: #fff;
   background: #ed3c0d;
@@ -928,10 +936,10 @@ section {
   padding: 15px;
   font-weight: 600;
 }
-.contact .php-email-form .error-message br + br {
+.contact .myform .error-message br + br {
   margin-top: 25px;
 }
-.contact .php-email-form .sent-message {
+.contact .myform .sent-message {
   display: none;
   color: #fff;
   background: #18d26e;
@@ -939,13 +947,13 @@ section {
   padding: 15px;
   font-weight: 600;
 }
-.contact .php-email-form .loading {
+.contact .myform .loading {
   display: none;
   background: #fff;
   text-align: center;
   padding: 15px;
 }
-.contact .php-email-form .loading:before {
+.contact .myform .loading:before {
   content: "";
   display: inline-block;
   border-radius: 50%;
@@ -957,18 +965,18 @@ section {
   -webkit-animation: animate-loading 1s linear infinite;
   animation: animate-loading 1s linear infinite;
 }
-.contact .php-email-form input, .contact .php-email-form textarea {
+.contact .myform input, .contact .myform textarea {
   border-radius: 4px;
   box-shadow: none;
   font-size: 14px;
 }
-.contact .php-email-form input {
+.contact .myform input {
   height: 44px;
 }
-.contact .php-email-form textarea {
+.contact .myform textarea {
   padding: 10px 12px;
 }
-.contact .php-email-form button[type=submit] {
+.contact .myform button[type=submit] {
   background: #0563bb;
   border: 0;
   padding: 10px 35px;
@@ -976,7 +984,7 @@ section {
   transition: 0.4s;
   border-radius: 50px;
 }
-.contact .php-email-form button[type=submit]:hover {
+.contact .myform button[type=submit]:hover {
   background: #0678e3;
 }
 @-webkit-keyframes animate-loading {
@@ -1047,4 +1055,18 @@ section {
 }
 #footer .credits {
   font-size: 13px;
+}
+
+/* ------------- input type numbers arrow disabling------------- */
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
 }

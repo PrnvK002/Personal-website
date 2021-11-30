@@ -262,3 +262,81 @@
   });
 
 })()
+
+/*----------------Form Validation-------------------------*/
+
+const email = document.getElementById('email');
+const subject = document.getElementById('subject');
+const messages = document.getElementById('message');
+const phone = document.getElementById('phone');
+function validSubmit(){
+  if(isValid() == true)
+  {
+      
+        $.ajax({
+            url:"https://script.google.com/macros/s/AKfycbwre-2hMUBcs07uJ2yPhWCG_iyAi5GFDX5-pHI98Na_8Hk9lDq3YRNxIZP2mE1N8uz0/exec",
+            data:$("#myform").serialize(),
+            method:"post",
+            success:function (response){
+                alert("Form submitted successfully")
+                window.location.reload()
+                //window.location.href="https://google.com"
+            },
+            error:function (err){
+                alert("Something Error")
+
+            }
+        })
+        return true;
+    }
+    else{
+        return false;
+    }
+  }
+
+function isValid(){
+
+    let subject_value = subject.value.trim();
+    let messages_value = messages.value.trim();
+    let phone_value = phone.value.toString();
+    if (validateEmail() === false){
+        document.getElementById('error_mail').style.visibility = "visible";
+        return false;
+    }else if(subject_value.length < 5){
+        document.getElementById('error_sub').style.visibility = "visible";
+        return false;
+
+    }
+    else if(phone_value.length < 10 || phone_value.length > 10 ){
+      document.getElementById('error_phone').style.visibility = "visible";
+        return false;
+    }else if(messages_value.length < 10){
+        document.getElementById('error_message').style.visibility = "visible";
+        return false;
+        
+    }
+    else{
+        document.getElementById('error_mail').style.visibility = "hidden";
+        document.getElementById('error_sub').style.visibility = "hidden";
+        document.getElementById('error_message').style.visibility = "hidden";
+        return true;
+    }
+  }
+function validateEmail() 
+{
+  let email_id  = email.value.trim();
+ if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email_id) && email_id.length > 6)
+  {
+    return (true)
+  }
+    return (false)
+}
+function  validateName(){
+  const name=document.getElementById("name").value;
+  if(name.charCodeAt(0) >= 65 && name.charCodeAt(0) <= 90){
+    return true;
+  }
+  else{
+    return false;
+  }
+}
